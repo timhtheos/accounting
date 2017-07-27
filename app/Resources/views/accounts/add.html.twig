@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Account" %}
+{% set breadcrumbs  = "Add" %}
+
+{% block body %}
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end(form) }}
+{% endblock %}
