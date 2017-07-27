@@ -7,9 +7,12 @@ I just wanna spend 1 hour a day learning Symfony 3, from scratch.
 
 ## What is it so far?
 
-- [x] You can list and add accounts.
+- [x] List accounts.
+- [x] Add account.
 
 ![](https://www.evernote.com/l/AmIg1KbluyVNCrHQyJyWIbovHaFPveT2aXEB/image.png)
+
+For @todos, see at the bottom of this README.md file.
 
 ## Start/run/stop the app
 
@@ -93,3 +96,15 @@ You will be asked the following:
 ```
 php bin/console doctrine:schema:update --force
 ```
+
+## @todo
+
+- [ ] List banks.
+- [ ] Add bank.
+- [ ] List currencies.
+- [ ] Add currency.
+- [ ] List account types.
+- [ ] Add account type.
+- [ ] Update accounts' name to pull from entity banks.
+- [ ] Update accounts' type to use entity account types.
+- [ ] Update accounts' currency to use entity currencies.
