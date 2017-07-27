@@ -88,20 +88,26 @@
                             {% if subheading %}
                               <small>
                                 <i class="fa fa-fw fa-caret-right"></i> {{ subheading }}
-                                {% if subheading_action %}
-                                  <i class="fa fa-fw fa-caret-right"></i> {{ subheading_action }}
-                                {% endif %}
                               </small>
                             {% endif %}
                         </h1>
+
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                              <i class="fa fa-dashboard"></i>  <a href="/">Dashboard</a>
                             </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Accounting
-                            </li>
+                            {% if subheading %}
+                              <li class="">
+                                <i class="fa fa-file"></i> {{ subheading }}
+                              </li>
+                            {% endif %}
+                            {% if breadcrumbs %}
+                              <li class="">
+                                <i class="fa fa-file"></i> {{ breadcrumb }}
+                              </li>
+                            {% endif %}
                         </ol>
+
                     </div>
                 </div>
                 <!-- /.row -->
