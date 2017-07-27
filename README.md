@@ -27,7 +27,7 @@ php bin/console server:run
 
 To stop watching, just press `CTRL+c`.
 
-## Generate Doctrine2 entities
+## Generate doctrine2 entities
 
 ```
 php bin/console doctrine:generate:entity
@@ -81,3 +81,9 @@ You will be asked the following:
     | alias      | string   | 30     | not null | not unique |
     | currency   | string   | 3      | not null | not unique | 
     | date_added | datetime |        | not null | not unique |
+
+## Create database tables/schema
+
+```
+php bin/console doctrine:schema:update --force
+```
