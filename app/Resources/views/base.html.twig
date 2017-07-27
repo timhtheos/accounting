@@ -85,7 +85,14 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Accounting
-                            <small>Subheading</small>
+                            {% if subheading %}
+                              <small>
+                                <i class="fa fa-fw fa-caret-right"></i> {{ subheading }}
+                                {% if subheading_action %}
+                                  <i class="fa fa-fw fa-caret-right"></i> {{ subheading_action }}
+                                {% endif %}
+                              </small>
+                            {% endif %}
                         </h1>
                         <ol class="breadcrumb">
                             <li>
