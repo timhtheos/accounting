@@ -7,7 +7,7 @@ I just wanna spend 1 hour a day learning Symfony 3, from scratch.
 
 ## What is it so far?
 
-[/] You can list and add accounts.
+- [x] You can list and add accounts.
 
 ![](https://www.evernote.com/l/AmIg1KbluyVNCrHQyJyWIbovHaFPveT2aXEB/image.png)
 
