@@ -90,4 +90,18 @@ class BanksController extends Controller
       'form' => $form->createView()
     ));
   }
+
+  /**
+   * @Route("/bank/details/{$id}", name="bank_details")
+   */
+  public function detailsAction($id)
+  {
+    $bank = $this->getDoctrine()
+      ->getRepository('AppBundle:Banks')
+      ->find($id);
+
+    return $this->render('banks/details.html.twig', array(
+      'bank' => $bank
+    ));
+  }
 }
