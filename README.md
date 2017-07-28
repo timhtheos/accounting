@@ -7,10 +7,11 @@ I just wanna spend 1 hour a day learning Symfony 3, from scratch.
 
 ## What is it so far?
 
-- [x] List accounts.
-- [x] Add account.
-
+- [x] List accounts and add an account.
 ![](https://www.evernote.com/l/AmIg1KbluyVNCrHQyJyWIbovHaFPveT2aXEB/image.png)
+
+- [x] List banks and add a bank.
+![](https://www.evernote.com/l/AmLlXdTgZS1MA6ptfS0uYOpYjxrvFwr6HtsB/image.png)
 
 For @todos, see at the bottom of this README.md file.
 
@@ -110,12 +111,12 @@ php bin/console doctrine:schema:update --force
 
 ## @todo
 
-- [ ] List banks.
-- [ ] Add bank.
+- [ ] Add weight to accounts.
 - [ ] List currencies.
 - [ ] Add currency.
 - [ ] List account types.
 - [ ] Add account type.
+- [ ] Sort accounts, banks, currencies, and account types by weight.
 - [ ] Update accounts' name to pull from entity banks.
 - [ ] Update accounts' type to use entity account types.
 - [ ] Update accounts' currency to use entity currencies.
