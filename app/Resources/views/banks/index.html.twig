@@ -10,7 +10,9 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Weight</th>
           <th>Bank name</th>
+          <th>Bank short name</th>
           <th>Date Added</th>
           <th>Actions</th>
         </tr>
@@ -19,7 +21,9 @@
         {% for bank in banks %}
         <tr>
           <td>{{ bank.id }}</td>
+          <td>{{ bank.weight }}</td>
           <td>{{ bank.name }}</td>
+          <td>{{ bank.alias }}</td>
           <td>{{ bank.dateAdded|date('F j, Y') }}</td>
           <td>
             <a href="" class="btn btn-default">Edit</a>
