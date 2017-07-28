@@ -64,7 +64,7 @@ class BanksController extends Controller
       // Get data.
       $name = $form['name']->getData();
       $weight = $form['weight']->getData();
-      $alias = $form['weight']->getData();
+      $alias = $form['alias']->getData();
 
       $now = new\DateTime('now');
 
