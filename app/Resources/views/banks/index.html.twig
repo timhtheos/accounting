@@ -15,14 +15,11 @@
         </tr>
       </thead>
       <tbody>
-        {% for account in accounts %}
+        {% for bank in banks %}
         <tr>
-          <td>{{ account.id }}</td>
-          <td>{{ account.name }}</td>
-          <td>{{ account.type }}</td>
-          <td>{{ account.alias }}</td>
-          <td>{{ account.currency }}</td>
-          <td>{{ account.dateAdded|date('F j, Y') }}</td>
+          <td>{{ bank.id }}</td>
+          <td>{{ bank.name }}</td>
+          <td>{{ bank.dateAdded|date('F j, Y') }}</td>
           <td>
             <a href="" class="btn btn-default">Edit</a>
             <a href="" class="btn btn-danger">Delete</a>
