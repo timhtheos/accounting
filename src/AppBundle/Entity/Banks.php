@@ -36,6 +36,13 @@ class Banks
     private $weight;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="alias", type="string", length=50)
+     */
+    private $alias;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_added", type="datetime")
@@ -99,6 +106,30 @@ class Banks
     public function getWeight()
     {
         return $this->weight;
+    }
+
+    /**
+     * Set alias
+     *
+     * @param string $alias
+     *
+     * @return Banks
+     */
+    public function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+
+    /**
+     * Get alias
+     *
+     * @return string
+     */
+    public function getAlias()
+    {
+        return $this->alias;
     }
 
     /**
