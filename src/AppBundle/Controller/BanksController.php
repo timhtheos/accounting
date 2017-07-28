@@ -18,7 +18,7 @@ class BanksController extends Controller
       ->findAll();
 
     return $this->render('banks/index.html.twig', array(
-      'banks' => banks$
+      'banks' => $banks
     ));
   }
 }
