@@ -97,6 +97,17 @@ You will be asked the following:
 php bin/console doctrine:schema:update --force
 ```
 
+## Entities in AppBundle
+
+1.  Banks
+
+    | field name | type     | length | null     | unique     |
+    | ---------- | -------- | ------ | -------- | ---------- |
+    | name       | string   | 255    | not null | not unique |
+    | weight     | integer  |        | not null | not unique |
+    | alias      | string   | 50     | not null | not unique |
+    | date_added | datetime |        | not null | not unique |
+
 ## @todo
 
 - [ ] List banks.
