@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Bank" %}
+{% set breadcrumbs  = "List" %}
+
+{% block body %}
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Bank name</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for account in accounts %}
+        <tr>
+          <td>{{ account.id }}</td>
+          <td>{{ account.name }}</td>
+          <td>{{ account.type }}</td>
+          <td>{{ account.alias }}</td>
+          <td>{{ account.currency }}</td>
+          <td>{{ account.dateAdded|date('F j, Y') }}</td>
+          <td>
+            <a href="" class="btn btn-default">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
