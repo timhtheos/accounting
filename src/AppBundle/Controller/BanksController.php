@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -41,12 +40,20 @@ class BanksController extends Controller
       'style' => 'margin-bottom: 15px;'
     ));
 
+    $params_weight = $params;
+    $params_weight['choices'] = array(
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+    );
+
     $params_submit = $params;
     $params_submit['label'] = 'Add bank';
-    $params_submit['attr']['class'] = 'btn btn-primary';
+    $params_submit['attr']['class'] = 'btn btn-primary pull-right';
 
     $form = $this->createFormBuilder($bank)
       ->add('name', TextType::class, $params)
+      ->add('weight', ChoiceType::class, $params_weight)
       ->add('save', SubmitType::class, $params_submit)
       ->getForm();
 
@@ -55,10 +62,12 @@ class BanksController extends Controller
     if($form->isSubmitted() && $form->isValid()) {
       // Get data.
       $name = $form['name']->getData();
+      $weight = $form['weight']->getData();
 
       $now = new\DateTime('now');
 
       $bank->setName($name);
+      $bank->setWeight($weight);
       $bank->setDateAdded($now);
 
       $em = $this->getDoctrine()->getManager();
