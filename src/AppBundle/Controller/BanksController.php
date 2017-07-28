@@ -54,6 +54,7 @@ class BanksController extends Controller
     $form = $this->createFormBuilder($bank)
       ->add('name', TextType::class, $params)
       ->add('weight', ChoiceType::class, $params_weight)
+      ->add('alias', TextType::class, $params)
       ->add('save', SubmitType::class, $params_submit)
       ->getForm();
 
@@ -63,11 +64,13 @@ class BanksController extends Controller
       // Get data.
       $name = $form['name']->getData();
       $weight = $form['weight']->getData();
+      $alias = $form['weight']->getData();
 
       $now = new\DateTime('now');
 
       $bank->setName($name);
       $bank->setWeight($weight);
+      $bank->setAlias($alias);
       $bank->setDateAdded($now);
 
       $em = $this->getDoctrine()->getManager();
