@@ -92,7 +92,7 @@ class BanksController extends Controller
   }
 
   /**
-   * @Route("/bank/details/{$id}", name="bank_details")
+   * @Route("/bank/details/{id}", name="bank_details")
    */
   public function detailsAction($id)
   {

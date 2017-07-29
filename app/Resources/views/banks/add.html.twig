@@ -4,6 +4,12 @@
 {% set breadcrumbs  = "Add" %}
 
 {% block body %}
+  <div class="pull-right">
+    <a href="/banks" class="btn btn-default">Cancel</a>
+  </div>
+
+  <h2 class="page-header">Add a bank</h2>
+
   {{ form_start(form) }}
   {{ form_widget(form) }}
   {{ form_end(form) }}

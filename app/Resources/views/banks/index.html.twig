@@ -4,13 +4,17 @@
 {% set breadcrumbs  = "List" %}
 
 {% block body %}
+  <div class="pull-right">
+    <a href="/bank/add" class="btn btn-primary">Add bank</a>
+  </div>
+
+  <h2 class="page-header">List of banks</h2>
+
   <div class="table-responsive">
-    <a href="/bank/add" class="btn btn-primary pull-right">Add bank</a>
     <table class="table table-hover table-striped">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Weight</th>
           <th>Bank name</th>
           <th>Bank short name</th>
           <th>Date Added</th>
@@ -21,14 +25,13 @@
         {% for bank in banks %}
         <tr>
           <td>{{ bank.id }}</td>
-          <td>{{ bank.weight }}</td>
           <td>{{ bank.name }}</td>
           <td>{{ bank.alias }}</td>
           <td>{{ bank.dateAdded|date('F j, Y') }}</td>
           <td>
             <a href="/bank/details/{{ bank.id }}" class="btn btn-primary">Details</a>
-            <a href="" class="btn btn-default">Edit</a>
-            <a href="" class="btn btn-danger">Delete</a>
+            <a href="/bank/edit/{{ bank.id }}" class="btn btn-default">Edit</a>
+            <a href="/bank/delete/{{ bank.id }}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         {% endfor %}
