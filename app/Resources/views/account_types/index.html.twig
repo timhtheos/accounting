@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Account type" %}
+{% set breadcrumbs  = "List" %}
+
+{% block body %}
+  <div class="pull-right">
+    <a href="/account_type/add" class="btn btn-primary">Add account type</a>
+  </div>
+
+  <h2 class="page-header">List of account types</h2>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Account type name</th>
+          <th>Short name</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for account_type in account_types %}
+        <tr>
+          <td>{{ account_type.id }}</td>
+          <td>{{ account_type.name }}</td>
+          <td>{{ account_type.alias }}</td>
+          <td>{{ account_type.dateAdded|date('F j, Y') }}</td>
+          <td>
+            <a href="/account_type/details/{{ account_type.id }}" class="btn btn-primary">Details</a>
+            <a href="/account_type/edit/{{ account_type.id }}" class="btn btn-default">Edit</a>
+            <a href="/account_type/delete/{{ account_type.id }}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

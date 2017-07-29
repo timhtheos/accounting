@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Account type" %}
+{% set breadcrumbs  = "Add" %}
+
+{% block body %}
+  <div class="pull-right">
+    <a href="/account_types" class="btn btn-default">Cancel</a>
+  </div>
+
+  <h2 class="page-header">Add account type</h2>
+
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end(form) }}
+{% endblock %}

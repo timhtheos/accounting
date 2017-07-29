@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Account type" %}
+{% set breadcrumbs  = "Details" %}
+
+{% block body %}
+  <div class="pull-right">
+    <a href="/account_types" class="btn btn-primary">Back</a>
+    <a href="/account_type/edit/{{ account_type.id }}" class="btn btn-default">Edit</a>
+    <a href="/account_type/delete/{{ account_type.id }}" class="btn btn-danger">Delete</a>
+  </div>
+
+  <h2 class="page-header">{{ account_type.name }}</h2>
+
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Account type name:</strong> {{ account_type.name }}</li>
+    <li class="list-group-item"><strong>Short name:</strong> {{ account_type.alias }}</li>
+    <li class="list-group-item"><strong>Date added:</strong> {{ account_type.dateAdded|date('F j, Y') }}</li>
+  </ul>
+{% endblock %}
