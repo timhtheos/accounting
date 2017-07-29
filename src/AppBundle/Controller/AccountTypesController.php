@@ -93,7 +93,7 @@ class AccountTypesController extends Controller
   }
 
   /**
-   * @Route("/account_type/details/{id}", name="account_type_details")
+   * @Route("/account-type/details/{id}", name="account_type_details")
    */
   public function detailsAction($id)
   {
@@ -107,7 +107,7 @@ class AccountTypesController extends Controller
   }
 
   /**
-   * @Route("/account_type/delete/{id}", name="account_type_delete")
+   * @Route("/account-type/delete/{id}", name="account_type_delete")
    */
   public function deleteAction($id)
   {
@@ -126,7 +126,7 @@ class AccountTypesController extends Controller
   }
 
   /**
-   * @Route("/account_type/edit/{id}", name="account_type_edit")
+   * @Route("/account-type/edit/{id}", name="account_type_edit")
    */
   public function editAction($id, Request $request)
   {
