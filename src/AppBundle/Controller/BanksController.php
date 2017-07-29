@@ -104,4 +104,23 @@ class BanksController extends Controller
       'bank' => $bank
     ));
   }
+
+  /**
+   * @Route("/bank/delete/{id}", name="bank_delete")
+   */
+  public function deleteAction($id)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $bank = $em->getRepository('AppBundle:Banks')->find($id);
+
+    $em->remove($bank);
+    $em->flush();
+
+    $this->addFlash(
+      'notice',
+      'Bank removed.'
+    );
+
+    return $this->redirectToRoute('banks');
+  }
 }
