@@ -73,8 +73,8 @@ php bin/console doctrine:schema:update --force
     | field name | type     | length | null     | unique     |
     | ---------- | -------- | ------ | -------- | ---------- |
     | name       | string   | 255    | not null | not unique |
-    | weight     | integer  |        | not null | not unique |
     | alias      | string   | 50     | not null | not unique |
+    | weight     | integer  |        | not null | not unique |
     | date_added | datetime |        | not null | not unique |
 
 2.  Account Types
@@ -82,8 +82,8 @@ php bin/console doctrine:schema:update --force
     | field name | type     | length | null     | unique     |
     | ---------- | -------- | ------ | -------- | ---------- |
     | name       | string   | 50     | not null | not unique |
-    | weight     | integer  |        | not null | not unique |
     | alias      | string   | 50     | not null | not unique |
+    | weight     | integer  |        | not null | not unique |
     | date_added | datetime |        | not null | not unique |
 
 3.  Currencies
@@ -91,8 +91,8 @@ php bin/console doctrine:schema:update --force
     | field name | type     | length | null     | unique     |
     | ---------- | -------- | ------ | -------- | ---------- |
     | name       | string   | 50     | not null | not unique |
-    | weight     | integer  |        | not null | not unique |
     | alias      | string   | 50     | not null | not unique |
+    | weight     | integer  |        | not null | not unique |
     | date_added | datetime |        | not null | not unique |
 
 4.  Accounts
@@ -103,6 +103,7 @@ php bin/console doctrine:schema:update --force
     | type**      | integer  |        | not null | not unique |
     | name        | string   | 50     | not null | not unique |
     | currency*** | integer  |        | not null | not unique | 
+    | weight      | integer  |        | not null | not unique |
     | date_added  | datetime |        | not null | not unique |
 
     ```
