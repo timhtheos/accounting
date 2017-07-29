@@ -80,7 +80,7 @@ class BanksController extends Controller
 
       $this->addFlash(
         'notice',
-        'Bank added.'
+        'Bank `' . $name . '`has been added.'
       );
 
       return $this->redirectToRoute('banks');
@@ -118,7 +118,7 @@ class BanksController extends Controller
 
     $this->addFlash(
       'notice',
-      'Bank removed.'
+      'Bank `' . $bank->getName() . '` has been removed.'
     );
 
     return $this->redirectToRoute('banks');
