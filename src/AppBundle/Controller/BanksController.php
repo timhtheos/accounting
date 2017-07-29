@@ -134,13 +134,6 @@ class BanksController extends Controller
       ->getRepository('AppBundle:Banks')
       ->find($id);
 
-    $now = new\DateTime('now');
-
-    $bank->setName($bank->getName());
-    $bank->setWeight($bank->getWeight());
-    $bank->setAlias($bank->getAlias());
-    $bank->setDateAdded($now);
-
     $params = array('attr' => array(
       'class' => 'form-control',
       'style' => 'margin-bottom: 15px;'
@@ -179,7 +172,7 @@ class BanksController extends Controller
       $bank->setName($name);
       $bank->setWeight($weight);
       $bank->setAlias($alias);
-      $bank->setDateAdded($now);
+      $bank->setDateAdded($bank->getDateAdded);
 
       $em->flush();
 
