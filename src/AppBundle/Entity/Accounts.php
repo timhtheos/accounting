@@ -50,6 +50,13 @@ class Accounts
     private $currency;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="weight", type="integer")
+     */
+    private $weight;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_added", type="datetime")
@@ -161,6 +168,30 @@ class Accounts
     public function getCurrency()
     {
         return $this->currency;
+    }
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     *
+     * @return Accounts
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 
     /**
