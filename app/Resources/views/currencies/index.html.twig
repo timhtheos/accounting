@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Currency" %}
+{% set breadcrumbs  = "List" %}
+
+{% block body %}
+  <div class="pull-right">
+    <a href="/currency/add" class="btn btn-primary">Add currency</a>
+  </div>
+
+  <h2 class="page-header">List of currencies</h2>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Currency name</th>
+          <th>Short name</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for currency in currencies %}
+        <tr>
+          <td>{{ currency.id }}</td>
+          <td>{{ currency.name }}</td>
+          <td>{{ currency.alias }}</td>
+          <td>{{ currency.dateAdded|date('F j, Y') }}</td>
+          <td>
+            <a href="/currency/details/{{ currency.id }}" class="btn btn-primary">Details</a>
+            <a href="/currency/edit/{{ currency.id }}" class="btn btn-default">Edit</a>
+            <a href="/currency/delete/{{ currency.id }}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

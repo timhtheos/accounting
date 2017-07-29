@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% set subheading   = "Currency" %}
+{% set breadcrumbs  = "Edit" %}
+
+{% block body %}
+  <div class="pull-right">
+    <a href="/currencies" class="btn btn-default">Cancel</a>
+    <a href="/currency/delete/{{ currency.id }}" class="btn btn-default">Delete</a>
+  </div>
+
+  <h2 class="page-header">Edit currency `{{ currency.name }}`</h2>
+
+  {{ form_start(form) }}
+  {{ form_widget(form) }}
+  {{ form_end(form) }}
+{% endblock %}
