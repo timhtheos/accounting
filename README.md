@@ -106,9 +106,7 @@ php bin/console doctrine:schema:update --force
     | date_added  | datetime |        | not null | not unique |
 
     \* referenced to entity `Banks`.
-
     \** referenced to entity `AccountTypes`.
-
     \*** referenced to entity `Currencies`.
 
 ## Encountered errors
