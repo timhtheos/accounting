@@ -45,25 +45,12 @@ class AccountsController extends Controller
     $params_submit['label'] = 'Add account';
     $params_submit['attr']['class'] = 'btn btn-primary';
 
-    $params_type = $params;
-    $params_type['choices'] = array(
-      'Savings' => 'savings',
-      'Current' => 'current',
-      'Credit' => 'credit',
-      'Loan' => 'loan',
-    );
-
-    $params_currency = $params;
-    $params_currency['choices'] = array(
-      'PHP' => 'php',
-      'USD' => 'usd'
-    );
-
     $form = $this->createFormBuilder($account)
       ->add('name', TextType::class, $params)
-      ->add('type', ChoiceType::class, $params_type)
-      ->add('alias', TextType::class, $params)
-      ->add('currency', ChoiceType::class, $params_currency)
+      ->add('bank', TextType::class, $params)
+      ->add('type', TextType::class, $params)
+      ->add('currency', TextType::class, $params)
+      ->add('weight', TextType::class, $params)
       ->add('save', SubmitType::class, $params_submit)
       ->getForm();
 
@@ -72,16 +59,19 @@ class AccountsController extends Controller
     if($form->isSubmitted() && $form->isValid()) {
       // Get data.
       $name = $form['name']->getData();
+      $bank = $form['bank']->getData();
       $type = $form['type']->getData();
-      $alias = $form['alias']->getData();
+      $currency = $form['currency']->getData();
+      $weight = $form['weight']->getData();
       $currency = $form['currency']->getData();
 
       $now = new\DateTime('now');
 
       $account->setName($name);
+      $account->setBank($bank);
       $account->setType($type);
-      $account->setAlias($alias);
       $account->setCurrency($currency);
+      $account->setWeight($weight);
       $account->setDateAdded($now);
 
       $em = $this->getDoctrine()->getManager();
