@@ -86,7 +86,16 @@ php bin/console doctrine:schema:update --force
     | alias      | string   | 50     | not null | not unique |
     | date_added | datetime |        | not null | not unique |
 
-3.  Accounts
+3.  Currencies
+
+    | field name | type     | length | null     | unique     |
+    | ---------- | -------- | ------ | -------- | ---------- |
+    | name       | string   | 50     | not null | not unique |
+    | weight     | integer  |        | not null | not unique |
+    | alias      | string   | 50     | not null | not unique |
+    | date_added | datetime |        | not null | not unique |
+
+4.  Accounts
 
     | field name | type     | length | null     | unique     |
     | ---------- | -------- | ------ | -------- | ---------- |
