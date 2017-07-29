@@ -9,10 +9,11 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
+          <th>Account name</th>
+          <th>Bank</th>
           <th>Type</th>
-          <th>Alias</th>
           <th>Currency</th>
+          <th>Weight</th>
           <th>Date Added</th>
           <th>Actions</th>
         </tr>
@@ -20,11 +21,11 @@
       <tbody>
         {% for account in accounts %}
         <tr>
-          <td>{{ account.id }}</td>
           <td>{{ account.name }}</td>
+          <td>{{ account.bank }}</td>
           <td>{{ account.type }}</td>
-          <td>{{ account.alias }}</td>
           <td>{{ account.currency }}</td>
+          <td>{{ account.weight }}</td>
           <td>{{ account.dateAdded|date('F j, Y') }}</td>
           <td>
             <a href="" class="btn btn-default">Edit</a>
