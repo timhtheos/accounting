@@ -124,4 +124,76 @@ class BanksController extends Controller
 
     return $this->redirectToRoute('banks');
   }
+
+  /**
+   * @Route("/bank/edit/{id}", name="bank_edit")
+   */
+  public function editAction($id, Request $request)
+  {
+    $bank = $this->getDoctrine()
+      ->getRepository('AppBundle:Banks')
+      ->find($id);
+
+    $now = new\DateTime('now');
+
+    $bank->setName($bank->getName());
+    $bank->setWeight($bank->getWeight());
+    $bank->setAlias($bank->getAlias());
+    $bank->setDateAdded($now);
+
+    $params = array('attr' => array(
+      'class' => 'form-control',
+      'style' => 'margin-bottom: 15px;'
+    ));
+
+    $params_weight = $params;
+    $params_weight['label'] = 'Weight (optional)';
+    $params_weight['choices'] = array(
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+      39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50
+    );
+
+    $params_submit = $params;
+    $params_submit['label'] = 'Update bank';
+    $params_submit['attr']['class'] = 'btn btn-primary pull-right';
+
+    $form = $this->createFormBuilder($bank)
+      ->add('name', TextType::class, $params)
+      ->add('alias', TextType::class, $params)
+      ->add('weight', ChoiceType::class, $params_weight)
+      ->add('save', SubmitType::class, $params_submit)
+      ->getForm();
+
+    $form->handleRequest($request);
+
+    if($form->isSubmitted() && $form->isValid()) {
+      // Get data.
+      $name = $form['name']->getData();
+      $weight = $form['weight']->getData();
+      $alias = $form['alias']->getData();
+
+      $em = $this->getDoctrine()->getManager();
+      $bank = $em->getRepository('AppBundle:Banks')->find($id);
+
+      $bank->setName($name);
+      $bank->setWeight($weight);
+      $bank->setAlias($alias);
+      $bank->setDateAdded($now);
+
+      $em->flush();
+
+      $this->addFlash(
+        'notice',
+        'Bank `' . $name . '`has been updated.'
+      );
+
+      return $this->redirectToRoute('banks');
+    }
+
+    return $this->render('banks/edit.html.twig', array(
+      'bank' => $bank,
+      'form' => $form->createView()
+    ));
+  }
 }
