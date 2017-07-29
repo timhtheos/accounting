@@ -172,7 +172,7 @@ class BanksController extends Controller
       $bank->setName($name);
       $bank->setWeight($weight);
       $bank->setAlias($alias);
-      $bank->setDateAdded($bank->getDateAdded);
+      $bank->setDateAdded($bank->getDateAdded());
 
       $em->flush();
 
