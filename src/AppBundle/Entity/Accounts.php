@@ -22,30 +22,30 @@ class Accounts
     private $id;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="name", type="string", length=30)
+     * @ORM\Column(name="bank", type="integer")
      */
-    private $name;
+    private $bank;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="type", type="string", length=30)
+     * @ORM\Column(name="type", type="integer")
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="alias", type="string", length=30)
+     * @ORM\Column(name="name", type="string", length=50)
      */
-    private $alias;
+    private $name;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="currency", type="string", length=3)
+     * @ORM\Column(name="currency", type="integer")
      */
     private $currency;
 
@@ -65,6 +65,54 @@ class Accounts
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set bank
+     *
+     * @param integer $bank
+     *
+     * @return Accounts
+     */
+    public function setBank($bank)
+    {
+        $this->bank = $bank;
+
+        return $this;
+    }
+
+    /**
+     * Get bank
+     *
+     * @return int
+     */
+    public function getBank()
+    {
+        return $this->bank;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     *
+     * @return Accounts
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -92,57 +140,9 @@ class Accounts
     }
 
     /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Accounts
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set alias
-     *
-     * @param string $alias
-     *
-     * @return Accounts
-     */
-    public function setAlias($alias)
-    {
-        $this->alias = $alias;
-
-        return $this;
-    }
-
-    /**
-     * Get alias
-     *
-     * @return string
-     */
-    public function getAlias()
-    {
-        return $this->alias;
-    }
-
-    /**
      * Set currency
      *
-     * @param string $currency
+     * @param integer $currency
      *
      * @return Accounts
      */
@@ -156,7 +156,7 @@ class Accounts
     /**
      * Get currency
      *
-     * @return string
+     * @return int
      */
     public function getCurrency()
     {
