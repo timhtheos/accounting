@@ -97,13 +97,17 @@ php bin/console doctrine:schema:update --force
 
 4.  Accounts
 
-    | field name | type     | length | null     | unique     |
-    | ---------- | -------- | ------ | -------- | ---------- |
-    | name       | string   | 30     | not null | not unique |
-    | type       | string   | 30     | not null | not unique |
-    | alias      | string   | 30     | not null | not unique |
-    | currency   | string   | 3      | not null | not unique | 
-    | date_added | datetime |        | not null | not unique |
+    | field name  | type     | length | null     | unique     |
+    | ----------- | -------- | ------ | -------- | ---------- |
+    | bank*       | integer  |        | not null | not unique |
+    | type**      | integer  |        | not null | not unique |
+    | name        | string   | 50     | not null | not unique |
+    | currency*** | integer  |        | not null | not unique | 
+    | date_added  | datetime |        | not null | not unique |
+
+    * referenced to entity `Banks`.
+    ** referenced to entity `AccountTypes`.
+    *** referenced to entity `Currencies`.
 
 ## Encountered errors
 
